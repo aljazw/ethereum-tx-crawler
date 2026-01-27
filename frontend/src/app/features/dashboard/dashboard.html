@@ -1,0 +1,85 @@
+<div class="px-12 pt-6 pb-20 w-4/5 mx-auto">
+    <div class="flex gap-6 mb-5">
+        <app-search-bar 
+            label = "Search by Address"
+            placeholder="e.g. 0xAa7a9cA87d3694B5755F213b5D04094B8d0f0a6F"
+            (search)="onSearch($event)"
+        ></app-search-bar>
+        <form [formGroup]="form">
+            <div class="flex gap-2">
+                <mat-form-field appearance="outline">
+                    <mat-label>Start Block</mat-label>
+                    <input type="number" matInput formControlName="startBlock" />
+                    @if (
+                        form.get('startBlock')?.hasError('required') || 
+                        form.get('startBlock')?.hasError('pattern')
+                    ) {
+                        <mat-error>Please enter a valid block number</mat-error>
+                    }
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Tokens</mat-label>
+                    <select matNativeControl formControlName="txType" required>
+                        @for (tx of txTypes; track tx.value) {
+                            <option [value]="tx.value">
+                                {{ tx.label }}
+                            </option>
+                        }
+                    </select>
+                </mat-form-field>
+            </div>
+        </form>
+    </div>
+    
+
+    @if (loading()) {
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    } @else {
+        @if (error()) {
+            <div class="error-message">Error: {{ error() }}</div>
+        } @else {
+            @if (transactions().length) {
+                @switch (form.get('txType')?.value) {
+                    @case ('tx') {
+                        <app-eth-table 
+                            [transactions]="transactions()"
+                            [totalCount]="totalCount()"
+                            [pageIndex]="pageIndex"
+                            [pageSize]="pageSize"
+                            (pageChange)="onPageChange($event)"
+                        ></app-eth-table>
+                    } @case ('erc20') {
+                        <app-erc20-table  
+                            [transactions]="transactions()"
+                            [totalCount]="totalCount()"
+                            [pageIndex]="pageIndex"
+                            [pageSize]="pageSize"
+                            (pageChange)="onPageChange($event)"
+                        ></app-erc20-table>
+                    } @case ('erc721') {
+                        <app-erc721-table 
+                            [transactions]="transactions()"
+                            [totalCount]="totalCount()"
+                            [pageIndex]="pageIndex"
+                            [pageSize]="pageSize"
+                            (pageChange)="onPageChange($event)"
+                        ></app-erc721-table>
+                    } @case ('erc1155') {
+                        <app-erc1155-table 
+                            [transactions]="transactions()"
+                            [totalCount]="totalCount()"
+                            [pageIndex]="pageIndex"
+                            [pageSize]="pageSize"
+                            (pageChange)="onPageChange($event)"
+                        ></app-erc1155-table>
+                    }
+                }
+            }
+        }
+    }
+
+    
+
+</div>
+

@@ -1,0 +1,18 @@
+<span class="flex items-center text-center">
+    <a 
+        matTooltip={{hash()}}
+        href="#"
+        class="text-blue-700"
+    >
+        {{ hash() | slice:0:12 }}...
+    </a>
+    <button
+        matIconButton
+        matTooltip="Copy transaction hash"
+        (click)="copyToClipboard(hash())"
+    >
+        <mat-icon class="opacity-60" style="transform: scale(0.6);">
+        content_copy
+        </mat-icon>
+    </button>
+</span>
