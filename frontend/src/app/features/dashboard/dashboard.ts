@@ -70,6 +70,7 @@ export class Dashboard {
   address = '';
 
   ngOnInit() {
+
     this.form.get('startBlock')?.valueChanges
     .pipe(
       debounceTime(600),         
@@ -118,7 +119,7 @@ export class Dashboard {
       next: res => {
         this.transactions.set(res);
         this.loading.set(false);
-        console.log('Transactions', this.transactions())
+        console.log('Transactions', this.transactions());
       },
       error: err => {
         this.error.set(err.error?.error ?? 'Failed to load transactions');

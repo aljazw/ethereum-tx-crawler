@@ -1,15 +1,19 @@
 <span class="flex items-center text-center">
     <a 
-        matTooltip={{hash()}}
-        href="#"
+        matTooltip={{transaction().hash}}
         class="text-blue-700"
+        [routerLink]="['', transaction().hash]"
+        [state]="{ 
+                transaction: transaction(),
+                txType: txType(),
+            }"
     >
-        {{ hash() | slice:0:12 }}...
+        {{ transaction().hash | slice:0:12 }}...
     </a>
     <button
         matIconButton
         matTooltip="Copy transaction hash"
-        (click)="copyToClipboard(hash())"
+        (click)="copyToClipboard(transaction().hash)"
     >
         <mat-icon class="opacity-60" style="transform: scale(0.6);">
         content_copy

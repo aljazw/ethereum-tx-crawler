@@ -2,7 +2,7 @@ import { Component, input, Input, output, ViewChild } from '@angular/core';
 import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { AnyTransaction } from '../../../../core/models/transaction';
+import { AnyTransaction, TxType } from '../../../../core/models/transaction';
 import { TableHeader } from '../table-header/table-header';
 import { TransactionHashCell } from '../transaction-hash-cell/transaction-hash-cell';
 import { CommonModule } from '@angular/common';
@@ -30,6 +30,8 @@ export class Erc721Table {
   totalCount = input.required<number>();
   pageSize = input.required<number>();
   pageIndex = input.required<number>();
+  txType = input.required<TxType>();
+  
 
   pageChange = output<PageEvent>();
 

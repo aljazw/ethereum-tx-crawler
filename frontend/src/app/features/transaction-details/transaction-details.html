@@ -1,0 +1,19 @@
+<div class="flex justify-center p-10 gap-5">
+    <button 
+        matIconButton
+        (click)="goBack()"
+    >
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    @switch (txType()) {
+        @case ('tx') {
+            <app-eth-transaction [tx]="ethTx">></app-eth-transaction>
+        } @case ('erc20') {
+            <app-erc20-transaction [tx]="erc20Tx"></app-erc20-transaction>
+        } @case ('erc721') {
+            <app-erc721-transaction [tx]="erc721Tx"></app-erc721-transaction>
+        } @case ('erc1155') {
+            <app-erc1155-transaction [tx]="erc1155Tx"></app-erc1155-transaction>
+        }
+    }
+</div>

@@ -1,0 +1,25 @@
+<div class="w-180 mx-auto p-4 bg-white shadow-md rounded-md overflow-auto">
+  <h2 class="text-xl font-bold mb-4">Transaction Details</h2>
+
+  <app-base-transaction-details [tx]="tx()"></app-base-transaction-details>
+
+  <div class="grid grid-cols-2 gap-4 mt-4">
+
+    <div class="font-semibold">Value (ETH):</div>
+    <div>{{ (+tx().value) / 1e18 }} ETH</div>
+
+
+    @if (tx().txreceipt_status) {
+      <div class="font-semibold">Transaction Status:</div>
+      <div>
+        <span 
+          [class.text-green-600]="tx().txreceipt_status === '1'" 
+          [class.text-red-600]="tx().txreceipt_status !== '1'"
+        >
+          {{ tx().txreceipt_status === '1' ? 'Success' : 'Fail' }}
+        </span>
+      </div>
+    }
+    
+  </div>
+</div>

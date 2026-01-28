@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { EthTransaction, TxResponseMap, TxType } from '../models/transaction';
+import { EthTransactionType, TxResponseMap, TxType } from '../models/transaction';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';

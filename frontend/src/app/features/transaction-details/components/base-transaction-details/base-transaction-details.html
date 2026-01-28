@@ -1,0 +1,50 @@
+<!-- Base transaction info -->
+<div class="grid grid-cols-2 gap-4">
+    <div class="font-semibold">Hash:</div>
+    <div class="break-all">{{ tx().hash }}</div>
+
+    <div class="font-semibold">Block Number:</div>
+    <div>{{ tx().blockNumber }}</div>
+
+    <div class="font-semibold">Block Hash:</div>
+    <div class="break-all">{{ tx().blockHash }}</div>
+
+    <div class="font-semibold">Timestamp:</div>
+    <div>{{ tx().timeStamp }} ({{ +tx().timeStamp * 1000 | date:'medium' }})</div>
+
+    <div class="font-semibold">From:</div>
+    <div class="break-all">{{ tx().from }}</div>
+
+    <div class="font-semibold">To:</div>
+    <div class="break-all">{{ tx().to }}</div>
+
+    <div class="font-semibold">Nonce:</div>
+    <div>{{ tx().nonce }}</div>
+
+    <div class="font-semibold">Transaction Index:</div>
+    <div>{{ tx().transactionIndex }}</div>
+
+    <div class="font-semibold">Gas:</div>
+    <div>{{ tx().gas }}</div>
+
+    <div class="font-semibold">Gas Price (wei):</div>
+    <div>{{ tx().gasPrice }}</div>
+
+    <div class="font-semibold">Gas Used:</div>
+    <div>{{ tx().gasUsed }}</div>
+
+    <div class="font-semibold">Cumulative Gas Used:</div>
+    <div>{{ tx().cumulativeGasUsed }}</div>
+
+    <div class="font-semibold">Input:</div>
+    <div class="break-all">{{ tx().input }}</div>
+
+    <div class="font-semibold">Method ID:</div>
+    <div>{{ tx().methodId }}</div>
+
+    <div class="font-semibold">Function Name:</div>
+    <div>{{ tx().functionName }}</div>
+
+    <div class="font-semibold">Confirmations:</div>
+    <div>{{ tx().confirmations }}</div>
+</div>

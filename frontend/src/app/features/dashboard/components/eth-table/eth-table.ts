@@ -1,5 +1,5 @@
 import { Component, input, Input, output, ViewChild } from '@angular/core';
-import { AnyTransaction } from '../../../../core/models/transaction';
+import { AnyTransaction, TxType } from '../../../../core/models/transaction';
 import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
@@ -32,6 +32,8 @@ export class EthTable {
     totalCount = input.required<number>();
     pageSize = input.required<number>();
     pageIndex = input.required<number>();
+    txType = input.required<TxType>();
+    
 
     pageChange = output<PageEvent>();
 

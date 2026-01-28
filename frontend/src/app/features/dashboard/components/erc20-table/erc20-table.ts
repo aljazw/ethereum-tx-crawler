@@ -1,7 +1,7 @@
 import { Component, Input, input, output, ViewChild } from '@angular/core';
 import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { AnyTransaction } from '../../../../core/models/transaction';
+import { AnyTransaction, TxType } from '../../../../core/models/transaction';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { CommonModule } from '@angular/common';
@@ -33,6 +33,7 @@ export class Erc20Table {
   totalCount = input.required<number>();
   pageSize = input.required<number>();
   pageIndex = input.required<number>();
+  txType = input.required<TxType>();
 
   pageChange = output<PageEvent>();
 

@@ -6,7 +6,7 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { TableHeader } from '../table-header/table-header';
 import { TransactionHashCell } from '../transaction-hash-cell/transaction-hash-cell';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { AnyTransaction } from '../../../../core/models/transaction';
+import { AnyTransaction, TxType } from '../../../../core/models/transaction';
 
 @Component({
   selector: 'app-erc1155-table',
@@ -31,6 +31,8 @@ export class Erc1155Table {
   totalCount = input.required<number>();
   pageSize = input.required<number>();
   pageIndex = input.required<number>();
+  txType = input.required<TxType>();
+  
 
   pageChange = output<PageEvent>();
 

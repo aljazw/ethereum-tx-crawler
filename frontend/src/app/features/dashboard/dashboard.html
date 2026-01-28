@@ -47,6 +47,7 @@
                             [totalCount]="totalCount()"
                             [pageIndex]="pageIndex"
                             [pageSize]="pageSize"
+                            [txType]="form.get('txType')?.value!"
                             (pageChange)="onPageChange($event)"
                         ></app-eth-table>
                     } @case ('erc20') {
@@ -55,6 +56,7 @@
                             [totalCount]="totalCount()"
                             [pageIndex]="pageIndex"
                             [pageSize]="pageSize"
+                            [txType]="form.get('txType')?.value!"
                             (pageChange)="onPageChange($event)"
                         ></app-erc20-table>
                     } @case ('erc721') {
@@ -63,6 +65,7 @@
                             [totalCount]="totalCount()"
                             [pageIndex]="pageIndex"
                             [pageSize]="pageSize"
+                            [txType]="form.get('txType')?.value!"
                             (pageChange)="onPageChange($event)"
                         ></app-erc721-table>
                     } @case ('erc1155') {
@@ -71,6 +74,7 @@
                             [totalCount]="totalCount()"
                             [pageIndex]="pageIndex"
                             [pageSize]="pageSize"
+                            [txType]="form.get('txType')?.value!"
                             (pageChange)="onPageChange($event)"
                         ></app-erc1155-table>
                     }
